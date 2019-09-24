@@ -88,7 +88,7 @@ if [ ! -e $FRAMEWORK_REPO ]; then
 fi
 
 COMPONENT_REPOS=""
-for COMPOSER_JSON in `find "$FRAMEWORK_REPO/src" -name composer.json`; do
+for COMPOSER_JSON in `find "$FRAMEWORK_REPO/src" "$FRAMEWORK_REPO/packages" -name composer.json`; do
   COMPOSER_JSON_DIR=`dirname $COMPOSER_JSON`;
   COMPONENT_SUBDIR=`realpath --relative-to="$FRAMEWORK_REPO" "$COMPOSER_JSON_DIR"`;
   COMPONENT_FULLNAME=`cat "$COMPOSER_JSON" | jq -r .name`;
