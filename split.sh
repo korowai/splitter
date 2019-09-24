@@ -113,6 +113,6 @@ done
 
 if $PUSH; then
   for COMPONENT_REPO in $COMPONENT_REPOS; do
-    (echo cd "$COMPONENT_REPO" && echo git push --all && echo git push --tags);
+    echo '( cd '"$COMPONENT_REPO"' && git push --all && git push --tags )';
   done
 fi
