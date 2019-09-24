@@ -104,7 +104,7 @@ for COMPOSER_JSON in `find "$FRAMEWORK_REPO/src" -name composer.json`; do
   ( cd "$COMPONENT_REPO" && \
     git filter-branch --prune-empty --subdirectory-filter $COMPONENT_SUBDIR --tag-name-filter cat -- --all && \
     git remote set-url origin $COMPONENT_URL )
-  if [ -z "$COMPONENT_REPOS"]; then
+  if [ -z "$COMPONENT_REPOS" ]; then
     COMPONENT_REPOS="$COMPONENT_REPO";
   else
     COMPONENT_REPOS="$COMPONENT_REPOS $COMPONENT_REPO";
